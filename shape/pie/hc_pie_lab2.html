@@ -1,0 +1,159 @@
+<script src="https://cdn.bootcss.com/highcharts/6.0.7/highcharts.js"></script>
+
+<div class="container">
+    <div id="pie1"></div>
+    <div id="block">
+        饱后思味，则浓淡之境都消
+    </div>
+    <div id="pie2"></div>
+</div>
+
+<div id="pie3"></div>
+
+<style>
+    #pie1,
+    #pie2,
+    #block {
+        float: left;
+    }
+
+    #pie1 {
+        /* float:left; */
+        width: 40%;
+        border: red solid 1px;
+        border-collapse: collapse;
+        /* background-color: khaki; */
+    }
+
+    #pie2 {
+        /* float:right; */
+        width: 40%;
+        border-collapse: collapse;
+        border: red solid 1px;
+        /* background-color: khaki; */
+    }
+
+    #block {
+        width: 18%;
+        text-align: right;
+        /* border-collapse: collapse; */
+        height: 80px;
+        /* position: absolute; */
+        /* left:40%; */
+        border: greenyellow solid 1px;
+
+    }
+</style>
+
+<script>
+    let pdata3 = [{
+        name: '值',
+        data: [{
+                name: 'A',
+                color: 'red',
+                y: 11
+            },
+            {
+                name: 'B',
+                color: '#11ffee',
+                y: 15
+            }
+        ]
+    }];
+
+    Highcharts.chart('pie3', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: '参数化饼图'
+        },
+        series: pdata3
+    });
+
+
+    Highcharts.chart('pie1', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Duration'
+        },
+        series: [{
+            name: 'value %',
+            data: [{
+                    name: 'morning',
+                    y: 40,
+                    color: '#007DC3'
+                },
+                {
+                    name: 'afternoon',
+                    y: 40,
+                    color: 'red'
+                },
+                {
+                    name: 'evening',
+                    y: 80,
+                    color: 'yellow'
+                },
+                {
+                    name: 'other',
+                    y: 100,
+                    color: 'pink'
+                }
+            ]
+        }]
+    });
+
+    Highcharts.chart('pie2', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: '<a href="https://www.highcharts.com/demo" target="_blank">demos</a>',
+            align: 'center',
+            color: 'red',
+            verticalAlign: 'middle',
+            y: 40
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '50%',
+            data: [
+                ['<a href="http://sohu.com">Chrome</a>', 58.9],
+                ['Firefox', 13.29],
+                ['Internet Explorer', 13],
+                ['Edge', 3.78],
+                ['Safari', 3.42],
+                {
+                    name: 'Other',
+                    y: 7.61,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            ]
+        }]
+    });
+</script>

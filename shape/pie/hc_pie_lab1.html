@@ -1,0 +1,95 @@
+
+<script src="https://cdn.bootcss.com/highcharts/6.0.7/highcharts.js"></script>
+
+<div id="pie1"></div>
+<div id="pie2"></div>
+
+<a href="https://codepen.io/Hornetti/pen/zwJBVL">pen</a>
+
+<script>
+Highcharts.chart('pie1',{
+    chart:{
+        type:'pie'
+    },
+    title:{
+        text:'Duration'
+    },
+    series:[{
+        name:'value %',
+        data:[
+            {
+                name:'morning',
+                y:40,
+                color:'#007DC3'
+            },
+            {
+                name:'afternoon',
+                y:40,
+                color:'red'
+            },
+            {
+                name:'evening',
+                y:80,
+                color:'green'
+            },
+            {
+                name:'other',
+                y:100,
+                color:'pink'
+            }
+        ]
+    }]
+});
+
+    Highcharts.chart('pie2', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: 0,
+            plotShadow: false
+        },
+        title: {
+            text: '<a href="https://www.highcharts.com/demo" target="_blank">demos</a>',
+            align: 'center',
+            color:'red',
+            verticalAlign: 'middle',
+            y: 40
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%']
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Browser share',
+            innerSize: '50%',
+            data: [
+                ['<a href="http://sohu.com">Chrome</a>', 58.9],
+                ['Firefox', 13.29],
+                ['Internet Explorer', 13],
+                ['Edge', 3.78],
+                ['Safari', 3.42],
+                {
+                    name: 'Other',
+                    y: 7.61,
+                    dataLabels: {
+                        enabled: false
+                    }
+                }
+            ]
+        }]
+    });
+</script>
